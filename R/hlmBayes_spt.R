@@ -53,7 +53,7 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
   ###################
   # Dimensions Etc. #
   ###################
-  L = nrow(coords); N = length(y); p = ncol(X)
+  L = N = length(y); p = ncol(X)
   delta = as.matrix(dist(t))
   Delta = as.matrix(dist(coords))
   XtX = crossprod(X, X)
