@@ -20,7 +20,7 @@ st_cov_matern1 <- function(delta = NULL, Delta = NULL, phis = NULL, phit = NULL,
     for(j in i : Ns){
       Sig[(i - 1) * Nt + 1 : Nt, (j - 1) * Nt + 1 : Nt] = Sig[(j - 1) * Nt + 1 : Nt, (i - 1) * Nt + 1 : Nt] = sig2/A *
         (1 + sqrt(3) * phis * Delta[i, j]/sqrt(A)) *
-        exp( - sqrt(3) * phis * Delta[i, j]/sqrt(A))
+        exp(- sqrt(3) * phis * Delta[i, j]/sqrt(A))
     }
   }
   Sig + 1e-10 * diag(N)
