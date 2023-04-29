@@ -18,8 +18,9 @@ st_cov_gaussian <- function(delta = NULL, Delta = NULL, phis = NULL, phit = NULL
   Sig = matrix(NA, nrow = N, ncol = N)
   for(i in 1 : Ns){
     for(j in i : Ns){
-      Sig[(i - 1) * Nt + 1:Nt, (j - 1)*Nt + 1 : Nt] = Sig[(j - 1) * Nt + 1 : Nt, (i - 1) * Nt + 1 : Nt] = sig2/A *
-        exp( - phis * Delta[i, j]^2 / A)
+      Sig[(i - 1) * Nt + 1 : Nt, (j - 1) * Nt + 1 : Nt] =
+        Sig[(j - 1) * Nt + 1 : Nt, (i - 1) * Nt + 1 : Nt] = sig2/A *
+        exp(- phis * Delta[i, j]^2 / A)
     }
   }
   Sig + 1e-10 * diag(N)

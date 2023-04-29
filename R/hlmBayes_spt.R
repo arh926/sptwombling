@@ -170,7 +170,8 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
     ###############
     post_sd_beta  =  chol2inv(chol(prec_beta + XtX/tau2))
     post_mean_beta  =  post_sd_beta %*% (prec_beta %*% mean_beta + crossprod(X, y - z[D])/tau2)
-    res_beta[i,]  =  beta  =  as.vector(MASS::mvrnorm(1, post_mean_beta, post_sd_beta))
+    res_beta[i,]  =  beta  =  crossprod(chol(post_sd_beta), rnorm(p)) + post_mean_beta
+    # as.vector(mvrnorm(1, post_mean_beta, post_sd_beta))
 
     ############
     # Update Z #
@@ -266,7 +267,7 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
 
     ra  =  sum(log(sqrt(E/E.draw_t)))
     rb  =   - crossprod(t(crossprod(z, (R.draw.inv_t - R.inv))), z)/(2 * sigma2)
-    accept.prob  =  min(ra + rb + ifelse(test  =  (phit.draw > lower_phit & phit.draw < upper_phit),0, - Inf),0)
+    accept.prob  =  min(ra + rb + ifelse(test  =  (phit.draw > lower_phit & phit.draw < upper_phit), 0, - Inf), 0)
 
     if(log(runif(1))  <  accept.prob){
       res_phit[i]  =  phit  =  phit.draw
@@ -298,27 +299,27 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
       # Printing Progress #
       #####################
       if(verbose){
-        cat("Iteration ",i,"\n")
+        cat("Iteration ", i, "\n")
         if(i <= nburn){
           cat("-------------------------","\n",
-              "phi.s:","\t", round(median(res_phis[1:i]), 3),"\n",
-              "phi.t:","\t", round(median(res_phit[1:i]), 3),"\n",
-              "sigma.2:","\t", round(median(res_sigma2[1:i]), 3),"\n",
-              "tau.2:","\t", round(median(res_tau2[1:i]), 3),"\n",
-              "Acceptance Rate (phi.s):","\t", accepts * 100,"%","\n",
-              "Acceptance Rate (phi.t):","\t", acceptt * 100,"%","\n",
-              "Overall Acceptance Rate:", median(accepts_vec[1:(i/report)])*100, "%", "\t", median(acceptt_vec[1:(i/report)])*100,"%","\n",
-              "-------------------------","\n")
+              "phi.s:", "\t", round(median(res_phis[1:i]), 3), "\t",
+              "phi.t:", "\t", round(median(res_phit[1:i]), 3), "\n",
+              "sigma.2: ", "\t", round(median(res_sigma2[1:i]), 3), "\t",
+              "tau.2:", "\t", round(median(res_tau2[1:i]), 3), "\n",
+              "Acceptance Rate (phi.s):","\t", accepts * 100, "%", "\t",
+              ", (phi.t):", "\t", acceptt * 100, "%", "\n",
+              "Overall Acceptance Rate:", median(accepts_vec[1:(i/report)]) * 100, "%", "\t", median(acceptt_vec[1:(i/report)]) * 100,"%", "\n",
+              "-------------------------", "\n")
         }else{
           cat("-------------------------","\n",
-              "phi.s:", "\t", round(median(res_phis[nburn:i]), 3), "\n",
+              "phi.s:", "\t", round(median(res_phis[nburn:i]), 3), "\t",
               "phi.t:", "\t", round(median(res_phit[nburn:i]), 3), "\n",
-              "sigma.2:", "\t", round(median(res_sigma2[nburn:i]), 3), "\n",
+              "sigma.2:", "\t", round(median(res_sigma2[nburn:i]), 3), "\t",
               "tau.2:", "\t", round(median(res_tau2[nburn:i]), 3), "\n",
-              "Acceptance Rate (phi.s):","\t", accepts * 100, "%", "\n",
-              "Acceptance Rate (phi.t):","\t", acceptt * 100, "%", "\n",
-              "Overall Acceptance Rate:", median(accepts_vec[(nburn/report):(i/report)])*100, "%", "\t", median(acceptt_vec[(nburn/report):(i/report)])*100,"%","\n",
-              "-------------------------","\n")
+              "Acceptance Rate (phi.s):","\t", accepts * 100, "%", "\t",
+              ", (phi.t):","\t", acceptt * 100, "%", "\n",
+              "Overall Acceptance Rate:", median(accepts_vec[(nburn/report):(i/report)]) * 100, "%", "\t", median(acceptt_vec[(nburn/report):(i/report)]) * 100, "%", "\n",
+              "-------------------------", "\n")
         }
         accepts  =  acceptt  =  0
       }
