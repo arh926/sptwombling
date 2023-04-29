@@ -127,6 +127,9 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
     z = matrix(z_init, ncol = 1, nrow = N)
   }
 
+  steps_init = ifelse(is.null(steps_init), 1, steps_init)
+  stept_init = ifelse(is.null(stept_init), 1, stept_init)
+
   accepts_vec  =  acceptt_vec  =  c()
   accepts  =  acceptt   =  0
   steps  =  steps_init; stept  =  stept_init
