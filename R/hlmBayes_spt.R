@@ -108,7 +108,21 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
     z = matrix(z_init, ncol = 1, nrow = L)
   }
 
-  # MCMC Updates for Parameters
+  if(is.null(niter)){
+    warning(" Warning: chain length not specified, setting defaults to length = 1e4, burnin = 5e3, report = 1e2. ")
+    niter = 1e4
+    nburn = niter/2
+    report = 1e2
+  }
+  if(is.null(nburn) & !is.null(niter)){
+    warning(" Warning: burn-in not specified, setting default to niter/2. ")
+    nburn = niter/2
+  }
+  if(is.null(report)){
+    warning(" Warning: batch length not specified, setting default to 100. ")
+    report = 1e2
+  }
+
   accepts_vec  =  acceptt_vec  =  c()
   accepts  =  acceptt   =  0
   steps  =  steps_init; stept  =  stept_init
@@ -267,14 +281,14 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
       accepts  =  max(0.1667, min(accepts, 0.75))
       if(accepts > 0.5) steps  =  steps * accepts/0.5
       else if(accepts < 0.25) steps  =  steps * accepts/0.25
-      accepts  =  0
+
 
       acceptt  =  acceptt/report
       acceptt_vec  =  c(acceptt_vec, acceptt)
       acceptt  =  max(0.1667, min(acceptt, 0.75))
       if(acceptt > 0.5) stept  =  stept * acceptt/0.5
       else if(acceptt < 0.25) stept  =  stept * acceptt/0.25
-      acceptt  =  0
+
 
       #####################
       # Printing Progress #
@@ -287,8 +301,9 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
               "phi.t:","\t",round(median(res_phit[1:i]),3),"\n",
               "sigma.2:","\t",round(median(res_sigma2[1:i]),3),"\n",
               "tau.2:","\t",round(median(res_tau2[1:i]),3),"\n",
-              "Acceptance Rate (Batch):","\t",accepts*100,"%","\n",
-              "Overall Acceptance Rate:", median(accepts_vec[1:(i/report)])*100,"%","\n",
+              "Acceptance Rate (phis):","\t",accepts*100,"%","\n",
+              "Acceptance Rate (phit):","\t",acceptt*100,"%","\n",
+              "Overall Acceptance Rate:", median(accepts_vec[1:(i/report)])*100,"%","\t",median(acceptt_vec[1:(i/report)])*100,"%","\n",
               "-------------------------","\n")
         }else{
           cat("-------------------------","\n",
@@ -296,10 +311,12 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
               "phi.t:","\t",round(median(res_phit[nburn:i]),3),"\n",
               "sigma.2:","\t",round(median(res_sigma2[nburn:i]),3),"\n",
               "tau.2:","\t",round(median(res_tau2[nburn:i]),3),"\n",
-              "Acceptance Rate (Batch):","\t",accepts*100,"%","\n",
-              "Overall Acceptance Rate:", median(accepts_vec[(nburn/report):(i/report)])*100,"%","\n",
+              "Acceptance Rate (phis):","\t",accepts*100,"%","\n",
+              "Acceptance Rate (phit):","\t",acceptt*100,"%","\n",
+              "Overall Acceptance Rate:", median(accepts_vec[(nburn/report):(i/report)])*100,"%","\t",median(acceptt_vec[(nburn/report):(i/report)])*100,"%","\n",
               "-------------------------","\n")
         }
+        accepts  =  acceptt  =  0
       }
     }
   }
