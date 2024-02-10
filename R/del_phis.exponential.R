@@ -10,10 +10,10 @@
 #' @keywords st_cov_gaussian
 #' @examples
 del.phis.st_cov_exponential <- function(delta = NULL,
-                               Delta = NULL,
-                               phis = NULL,
-                               phit = NULL,
-                               sig2 = NULL){
+                                        Delta = NULL,
+                                        phis = NULL,
+                                        phit = NULL,
+                                        sig2 = NULL){
   Nt = nrow(delta)
   Ns = nrow(Delta)
   N = Ns * Nt
@@ -23,8 +23,8 @@ del.phis.st_cov_exponential <- function(delta = NULL,
   for(i in 1 : Ns){
     for(j in i : Ns){
       Sig[(i - 1) * Nt + 1 : Nt, (j - 1) * Nt + 1 : Nt] =
-        Sig[(j - 1) * Nt + 1 : Nt, (i - 1) * Nt + 1 : Nt] = sig2/A *
-        exp(- phis * Delta[i, j]/sqrt(A))
+        Sig[(j - 1) * Nt + 1 : Nt, (i - 1) * Nt + 1 : Nt] =
+        - sig2/A * Delta[i,j]/sqrt(A) * exp(- phis * Delta[i, j]/sqrt(A))
     }
   }
   Sig + 1e-10 * diag(N)

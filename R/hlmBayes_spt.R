@@ -1,10 +1,16 @@
 #' A spatiotemporal hierarchical Bayes Markov Chain Monte Carlo sampler
 #'
-#' Fits a univariate Gaussian spatiotemporal regression model: \eqn{Y(s,t)=x(s)^T\beta+Z(s)+\epsilon}. Parameters not listed are optional.
+#' Fits a univariate Gaussian spatiotemporal regression model: \eqn{Y(s,t)=x(s,t)^T\beta+Z(s,t)+\epsilon}. Parameters not listed are optional.
+#'
+#'
+#'
+#' The posterior being,
+#'
+#' \eqn{U(\phi_s|a_{\phi_s},b_{\phi_s})\times U(\phi_t|a_{\phi_t},b_{\phi_t}) \times IG(\sigma^2|a_{\sigma},b_{\sigma})\times IG(\tau^2|a_{\tau},b_{\tau})\times N(\beta|\mu_{\beta},\sigma_{\beta}^2)\times N_{N_s}(Z|0,\Sigma)\times\prod_{i_s=1}^{N_s} \prod_{i_t=1}^{N_t} N(y(s_{i_s},t_{i_t})|x(s_{i_s},t_{i_t})^T\beta+Z(s_{i_s},t_{i_t}),\tau^2)}
 #'
 #' @param t temporal coordinates for observed process (order \eqn{N_t} x \eqn{1})
 #' @param coords coordinates for observed process (order \eqn{N_s} x \eqn{2})
-#' @param y observed response (order \eqn{N} x  \eqn{1})
+#' @param y observed response (order \eqn{N} x  \eqn{1}), \eqn{N= N_s\times N_t}
 #' @param X a matrix of covariates (order \eqn{N} x  \eqn{p})
 #' @param z_init starting values of spatial effects (order \eqn{N} x  \eqn{1})
 #' @param D (use if replication at co-ordinate level) index for observations
@@ -14,22 +20,22 @@
 #' @param upper_phis upper bound for uniform prior on \eqn{\phi_s}
 #' @param lower_phit lower bound for uniform prior on \eqn{\phi_t}
 #' @param upper_phit upper bound for uniform prior on \eqn{\phi_t}
-#' @param sigma2_init starting value for \eqn{\phi}
-#' @param shape_sigma lower bound for uniform prior on \eqn{\phi}
-#' @param scale_sigma upper bound for uniform prior on \eqn{\phi}
-#' @param tau2_init starting value for \eqn{\phi}
-#' @param shape_tau lower bound for uniform prior on \eqn{\phi}
-#' @param scale_tau upper bound for uniform prior on \eqn{\phi}
-#' @param beta_init starting value for \eqn{\phi}
-#' @param mean_beta lower bound for uniform prior on \eqn{\phi}
-#' @param prec_beta upper bound for uniform prior on \eqn{\phi}
+#' @param sigma2_init starting value for \eqn{\sigma^2}
+#' @param shape_sigma shape parameter for inverse-gamma prior on \eqn{\sigma^2}
+#' @param scale_sigma scale parameter for inverse-gamma prior on \eqn{\sigma^2}
+#' @param tau2_init starting value for \eqn{\tau^2}
+#' @param shape_tau shape parameter for inverse-gamma prior on \eqn{\tau^2}
+#' @param scale_tau scale parameter for inverse-gamma prior on \eqn{\tau^2}
+#' @param beta_init starting value for \eqn{\beta}
+#' @param mean_beta mean parameter for normal prior on \eqn{\beta}
+#' @param prec_beta precision (1/variance) parameter for normal prior on \eqn{\beta}
 #' @param verbose if true prints output for batches
 #' @param steps_init tuning parameter for \eqn{\phi_s}
 #' @param stept_init tuning parameter for \eqn{\phi_t}
 #' @param niter number of MCMC iterations
 #' @param nburn number of burn-in samples
 #' @param report batch length
-#' @param cov.type covariance type (three available choices: Gaussian, Mat\'ern(\eqn{\nu=3/2})), Mat\'ern(\eqn{\nu=5/2})
+#' @param cov.type covariance type (three available choices: Gaussian, Mat\'ern(\eqn{\nu=1/2}), Mat\'ern(\eqn{\nu=3/2}), Mat\'ern(\eqn{\nu=5/2})
 #' @keywords
 #' @import stats coda
 #' @export

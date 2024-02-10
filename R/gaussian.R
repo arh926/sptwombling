@@ -9,7 +9,11 @@
 #' @param sig2 variance parameter
 #' @keywords st_cov_gaussian
 #' @examples
-st_cov_gaussian <- function(delta = NULL, Delta = NULL, phis = NULL, phit = NULL, sig2 = NULL){
+st_cov_gaussian <- function(delta = NULL,
+                            Delta = NULL,
+                            phis = NULL,
+                            phit = NULL,
+                            sig2 = NULL){
   Nt = nrow(delta)
   Ns = nrow(Delta)
   N = Ns * Nt
