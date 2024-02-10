@@ -25,7 +25,7 @@ del.phit.st_cov_gaussian <- function(delta = NULL,
     for(j in i:Ns){
       Sig[(i - 1) * Nt + 1:Nt, (j - 1) * Nt + 1:Nt] =
         Sig[(j - 1) * Nt + 1:Nt, (i - 1) * Nt + 1:Nt] =
-        - 2 * sig2/A^2 * phit * delta^2 * exp(-phis * Delta[i,j]^2/A) * (1 - phis * Delta[i, j]/A)
+        - 2 * sig2/A^2 * phit * delta^2 * exp(-phis * Delta[i,j]^2/A) * (1 - phis * Delta[i, j]^2/A)
     }
   }
   Sig

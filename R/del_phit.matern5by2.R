@@ -25,8 +25,8 @@ del.phit.st_cov_matern2 <- function(delta = NULL,
     for(j in i:Ns){
       Sig[(i - 1) * Nt + 1:Nt, (j - 1) * Nt + 1:Nt] =
         Sig[(j - 1) * Nt + 1:Nt, (i - 1) * Nt + 1:Nt] =
-        - sig2/A^(3/2) * phit * delta^2 * exp(-sqrt(5) * phis * Delta[i,j]/sqrt(A)) *
-        (1 + sqrt(5) * phis * Delta[i,j]/sqrt(A) - 5 * sqrt(5)/3 * phis^3 * Delta[i,j]^3/A^(3/2))
+        - sig2/A^2 * phit * delta^2 * exp(-sqrt(5) * phis * Delta[i,j]/sqrt(A)) *
+        (2 + 2 * sqrt(5) * phis * Delta[i,j]/sqrt(A) + 5 * phis^2 * Delta[i,j]^2/A + 5 * sqrt(5) * phis^3 * Delta[i,j]^3/A^(3/2))
     }
   }
   Sig

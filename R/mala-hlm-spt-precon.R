@@ -79,7 +79,7 @@ hlmBayes_mala_pc.spt <- function(y = NULL,
 
   phis.init = phis = 1
   phit.init = phit = 1
-  sig2.init = sig2 = 1
+  sig2.init = sig2 = 10
   tau2.init = tau2 = 1
   beta.init = beta = rep(0, p)
 
