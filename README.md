@@ -31,7 +31,7 @@ Code for performing Bayesian spatiotemporal wombling
 2. Fit a spatiotemporal Bayesian hierarchical model to the data
 3. Perform spatotemporal differential process analysis
 4. Locate or annotate planar curves of interest
-5. Perform surface wombling over trangulated surface
+5. Perform surface wombling over triangulated surface
 
 Demonstration with synthetic data.
 
