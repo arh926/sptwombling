@@ -2,7 +2,7 @@
 
 ![Maintainer](https://img.shields.io/badge/maintainer-arh926-blue)
 
-Reference to the paper titled, "Bayesian spatiotemporal Wombling". (arXiv link: here).
+Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: here).
 
 
 <table>
