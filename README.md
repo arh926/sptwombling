@@ -5,11 +5,10 @@
 Reference to the paper titled, "Bayesian spatiotemporal Wombling". (arXiv link: here).
 
 
-<p align="center">
 ![wombling-curves-1](https://github.com/user-attachments/assets/9a99542c-e6ec-413e-9324-d40fade26355)
 ![wombling-curves](https://github.com/user-attachments/assets/e06d2221-d72d-4d23-887f-faa6cfafb713)
 ![wombling-partition](https://github.com/user-attachments/assets/57403b92-aac2-4935-9dd2-f66a56fda072)
-<p>
+
 
 Illustration
 
