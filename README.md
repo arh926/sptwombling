@@ -27,6 +27,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
 4. Locate or annotate planar curves of interest
 5. Perform surface wombling over triangulated surface
 
+Refer to the vignettes folder for detailed steps and analysis.
 ```
 if("devtools" %in% rownames(installed.packages()) == FALSE) install.packages("devtools")
 devtools::install_github('arh926/sptwombling')
