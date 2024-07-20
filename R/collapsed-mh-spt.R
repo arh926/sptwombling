@@ -5,7 +5,7 @@
 #'
 #' The collapsed posterior being,
 #'
-#' \eqn{U(\phi_s|a_{\phi_s},b_{\phi_s}) \times U(\phi_t|a_{\phi_t},b_{\phi_t}) \times IG(\sigma^2|a_{\sigma},b_{\sigma})\times IG(\tau^2|a_{\tau},b_{\tau}) \times N(\beta|\mu_{\beta},\sigma_{\beta}^2) \times  \mathcal{N}(y(s,t)|x(s_{i_s},t_{i_t})^T\beta,\sigma^2 R(\phi_s,\phi_t)+\tau^2I)}
+#' \eqn{U(\phi_s|a_{\phi_s},b_{\phi_s}) \times U(\phi_t|a_{\phi_t},b_{\phi_t}) \times IG(\sigma^2|a_{\sigma},b_{\sigma})\times IG(\tau^2|a_{\tau},b_{\tau}) \times N(\beta|\mu_{\beta},\sigma_{\beta}^2) \times  \mathcal{N}(y(s,t)|x(s,t)^T\beta,\sigma^2 R(\phi_s,\phi_t)+\tau^2I)}
 #'
 #' @param y observed response (order \eqn{N} x  \eqn{1}), \eqn{N= N_s\times N_t}
 #' @param coords spatial coordinates for observed process (order \eqn{N_s} x \eqn{2})
@@ -18,21 +18,23 @@
 #' @param upper.phis upper bound for uniform prior on \eqn{\phi_s}
 #' @param lower.phit lower bound for uniform prior on \eqn{\phi_t}
 #' @param upper.phit upper bound for uniform prior on \eqn{\phi_t}
+#' @param lower.nu lower bound for fractal parameter
+#' @param upper.nu lower bound for fractal parameter
 #' @param a.sigma shape parameter for inverse-gamma prior on \eqn{\sigma^2}
 #' @param b.sigma scale parameter for inverse-gamma prior on \eqn{\sigma^2}
 #' @param a.tau shape parameter for inverse-gamma prior on \eqn{\tau^2}
 #' @param b.tau scale parameter for inverse-gamma prior on \eqn{\tau^2}
+#' @param trgt_fn.compute compute value of target function
+#' @param digits number of significant digits
 #' @param verbose logical prints output for batches
-#' @keywords
+#' @keywords hlmBayes_mh.spt
 #' @import stats coda
 #' @export
-#' @examples
 hlmBayes_mh.spt <- function(y = NULL,
                             coords = NULL,
                             t = NULL,
                             niter = NULL, nburn = NULL, report = NULL,
                             cov.type = NULL,
-                            mu.beta = NULL, prec.beta = NULL,
                             a.sigma = NULL, b.sigma = NULL,
                             a.tau = NULL, b.tau = NULL,
                             lower.nu = NULL, upper.nu = NULL,

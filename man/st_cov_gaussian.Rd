@@ -7,9 +7,9 @@
 st_cov_gaussian(
   delta = NULL,
   Delta = NULL,
-  phis = NULL,
-  phit = NULL,
-  sig2 = NULL
+  lphis = NULL,
+  lphit = NULL,
+  lsig2 = NULL
 )
 }
 \arguments{
@@ -17,11 +17,11 @@ st_cov_gaussian(
 
 \item{Delta}{spatial distance matrix}
 
-\item{phis}{spatial range}
+\item{lphis}{log of spatial range}
 
-\item{phit}{temporal range}
+\item{lphit}{log of temporal range}
 
-\item{sig2}{variance parameter}
+\item{lsig2}{log of spatiotemporal variance parameter}
 }
 \description{
 Computes an adapted non-separable Gaussian covariance kernel

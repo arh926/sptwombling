@@ -4,10 +4,10 @@
 #' @param coords spatial coordinates
 #' @param Nt number of time points
 #' @param data_frame response values: supply as a matrix of ncol = Nt
+#' @param shape should be NULL for now
+#' @keywords spt_plot
 #' @import MBA ggplot2 cowplot metR
-#' @keywords
 #' @export
-#' @examples
 spt_plot <- function(coords = NULL,
                      Nt = NULL,
                      data_frame = NULL, # supplied as a matrix of ncol = Nt
@@ -31,7 +31,7 @@ spt_plot <- function(coords = NULL,
       theme_cowplot(12) +
       geom_raster(aes(fill =  z)) +
       labs(x = "x", y = "y", fill = "") +
-      # other color scaels
+      # other color scales
       # scico::scale_fill_scico(palette = "vik", label = function(x) sprintf("%.2f", x)) +
       # scale_fill_viridis_c(option = "magma", label = function(x) sprintf("%.2f", x)) +
       scale_fill_distiller(palette = "PiYG", label = function(x) sprintf("%.2f", x)) +

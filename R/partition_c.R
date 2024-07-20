@@ -2,9 +2,8 @@
 #'
 #' @param curve.list a list of planar curves
 #' @param length.p length of partition
-#' @keywords
+#' @keywords partition_curve
 #' @export
-#' @examples
 ######################
 # Partitions a curve #
 ######################

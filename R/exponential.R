@@ -8,7 +8,6 @@
 #' @param lphit log of temporal range
 #' @param lsig2 log of spatiotemporal variance parameter
 #' @keywords st_cov_gaussian
-#' @examples
 st_cov_exponential <- function(delta = NULL,
                                Delta = NULL,
                                lphis = NULL,

@@ -6,11 +6,9 @@
 #' @param Delta spatial distance matrix
 #' @param phis spatial range
 #' @param phit temporal range
-#' @param sig2 variance parameter
 #' @param cov.type.s spatial covariance type (four available choices: Exponential, Gaussian, Mat\'ern(\eqn{\nu=3/2})), Mat\'ern(\eqn{\nu=5/2})
 #' @param cov.type.t spatial covariance type (five available choices: Exponential, Gaussian, Mat\'ern(\eqn{\nu=3/2})), Mat\'ern(\eqn{\nu=5/2}, Inverse/polynomial)
 #' @keywords st_cor_sepbl
-#' @examples
 st_cor_sepbl <- function(delta = NULL,
                          Delta = NULL,
                          phis = NULL,
@@ -47,7 +45,7 @@ st_cor_sepbl <- function(delta = NULL,
   inv.r.s = chol2inv(chol.r.s)
 
   R = kronecker(R.s, R.t)
-  R.chol  = kronecker(chol.r.s, chol.r.t)
+  R.chol = kronecker(chol.r.s, chol.r.t)
   R.inv = kronecker(inv.r.s, inv.r.t)
 
   return(list(R.t = R.t,

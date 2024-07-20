@@ -12,10 +12,9 @@
 #' @param tau2 posterior samples of the error variance (nugget)
 #' @param cov.type type of covariance kernel being used. Choices include Exponential, Mat\'ern(\eqn{\nu=3/2})), Mat\'ern(\eqn{\nu=5/2}), Gaussian
 #' @param silent logical argument for print-statements
-#' @keywords
+#' @keywords spsample
 #' @import parallel
 #' @export
-#' @examples
 spsample <- function(y = NULL,
                      coords = NULL,
                      t = NULL,

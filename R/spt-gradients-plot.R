@@ -1,15 +1,16 @@
-#' Plots estimated spatiotempoal differential processes
+#' Plots estimated spatiotemporal differential processes
 #'
-#' Uses ggplot2 to generate estimated plots for spatotemporal divergence and Laplacian
+#' Uses `ggplot2` to generate estimated plots for spatiotemporal divergence and Laplacian
 #' @param coords spatial coordinates
 #' @param data_frame response values: supply only one time point at a time
 #' @param grid.points grid points over which gradients/curvature is estimated
 #' @param gradients data frame of estimated gradients
 #' @param only.grad.no.curv logical for only gradients
+#' @param point.size size of points to be plotted
+#' @param shape should be NULL for now
 #' @import MBA ggplot2 cowplot metR
-#' @keywords
+#' @keywords spt_gradients_plot
 #' @export
-#' @examples
 spt_gradients_plot <- function(coords = NULL,
                                data_frame = NULL, # supply only one time point at a time
                                grid.points = NULL, # supply as "data.frame()"

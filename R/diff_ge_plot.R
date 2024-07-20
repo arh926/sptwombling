@@ -5,9 +5,8 @@
 #' @param diff.qty differential geometric quantity
 #' @param col.vec color vector for significance
 #' @import MBA ggplot2 cowplot metR
-#' @keywords
+#' @keywords plot_diff.geo
 #' @export
-#' @examples
 plot_diff.geo <- function(coords = NULL,
                           diff.qty = NULL,
                           col.vec = NULL){
@@ -172,4 +171,3 @@ plot_diff.geo <- function(coords = NULL,
 # pdf("plots/diff-ge-1.pdf", width = 7, height = 9)
 # plot.list
 # dev.off()
-#

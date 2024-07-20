@@ -1,24 +1,17 @@
-# install.packages("ggmcmc")
-# require(ggmcmc)
-# require(coda)
-# theta = coda::as.mcmc.list(coda::as.mcmc(cbind(beta.0 = results[[1]]$recover.beta[thin_id],
-#                                                sigma.2 = results[[1]]$sig2[thin_id],
-#                                                tau.2 = results[[1]]$tau2[thin_id],
-#                                                phis = results[[1]]$phis[thin_id],
-#                                                phit = results[[1]]$phit[thin_id])))
-# theta.mcmc = ggs(theta)
-# g1 = ggs_traceplot(theta.mcmc) + theme_bw()
-# g2 = ggs_compare_partial(theta.mcmc) + theme_bw()
-# g3 = ggs_autocorrelation(theta.mcmc) + theme_bw()
-#
-# cowplot::plot_grid(g1, g2, g3, labels = LETTERS[1:3], ncol = 3)
-#
-# ggs_pairs(theta.mcmc, lower = list(continuous = "density"))
-
+#' Function for plotting convergence diagnostics for MCMC
+#'
+#' @param samples posterior MCMC samples
+#' @param true true values, if available
+#' @param cnames names of parameters
+#' @param col color of median lines
+#' @param acf.lag.max maximum lag for ACF plot
+#' @param diagnostic.measures logical computes Geweke diagnostic for convergence
+#' @keywords plot_mcmc
+#' @import graphics latex2exp
+#' @export
 ############################################
 # A plotting function for your MCMC output #
 ############################################
-require(latex2exp)
 plot_mcmc <- function(samples = NULL, # can be a vector, or a matrix--vector means 1 parameter, matrix means multiple parameters
                       true = NULL, # true values if available
                       col = "darkgreen",
@@ -128,3 +121,21 @@ plot_mcmc <- function(samples = NULL, # can be a vector, or a matrix--vector mea
   }
   if(nc != 1) return(gd.vals)
 }
+
+# install.packages("ggmcmc")
+# require(ggmcmc)
+# require(coda)
+# theta = coda::as.mcmc.list(coda::as.mcmc(cbind(beta.0 = results[[1]]$recover.beta[thin_id],
+#                                                sigma.2 = results[[1]]$sig2[thin_id],
+#                                                tau.2 = results[[1]]$tau2[thin_id],
+#                                                phis = results[[1]]$phis[thin_id],
+#                                                phit = results[[1]]$phit[thin_id])))
+# theta.mcmc = ggs(theta)
+# g1 = ggs_traceplot(theta.mcmc) + theme_bw()
+# g2 = ggs_compare_partial(theta.mcmc) + theme_bw()
+# g3 = ggs_autocorrelation(theta.mcmc) + theme_bw()
+#
+# cowplot::plot_grid(g1, g2, g3, labels = LETTERS[1:3], ncol = 3)
+#
+# ggs_pairs(theta.mcmc, lower = list(continuous = "density"))
+

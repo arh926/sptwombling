@@ -8,9 +8,8 @@
 #' @param derived.geom logical computes differential geometric quantities like divergence and Laplacian
 #' @param seed sets seed
 #' @param grid.points grid points for computing true values
-#' @keywords
+#' @keywords generate_spt_data
 #' @export
-#' @examples
 generate_spt_data <- function(Ns = NULL,
                               Nt = NULL,
                               pattern.type = c("1", "2", "3", "4"),

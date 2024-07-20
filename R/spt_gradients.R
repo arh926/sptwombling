@@ -9,17 +9,9 @@
 #' @param plots logical for plotting. Defaults to FALSE.
 #' @param only.grad.no.curv logical for only gradients and no curvature estimation
 #' @param true true values, if available. Should be supplied as a list.
-#' @keywords
+#' @keywords spt_gradients
 #' @import parallel magic latex2exp coda
 #' @export
-#' @examples
-#'
-# source("~/Dropbox/Repos/sptwombling/R/spt-gradients-est-plot.R")
-# fn.list = list.files("cov_fn/")
-# sapply(fn.list, function(x){
-#   source(paste("cov_fn/", x, sep = ""))
-#   return(0)
-# })
 spt_gradients <- function(model = NULL, # should be a list of MCMC results post burn-in
                           grid.points = NULL,
                           cov.type = c("matern1", "matern2", "gaussian"),
@@ -307,7 +299,7 @@ spt_gradients <- function(model = NULL, # should be a list of MCMC results post 
           if("try-error" %in% class(R.Z.in)) R.Z.in <- chol2inv(chol(R.Z + 1e-6 * diag(N)))
 
 
-          grad.est <- matrix(NA, nr = nrow(grid.points), nc = ngrad)
+          grad.est <- matrix(NA, nrow = nrow(grid.points), ncol = ngrad)
 
           A.t <- (phit[i.mcmc]^2 * delta.t0^2 + 1)
           for(i in 1:nrow(grid.points)){

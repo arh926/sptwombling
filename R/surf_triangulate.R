@@ -5,9 +5,8 @@
 #' @param tr.points length of partition for triangular points. Defaults to 10
 #' @param plot.it logical for whether to plot 3d points
 #' @import rgl
-#' @keywords
+#' @keywords surf_triangulate
 #' @export
-#' @examples
 surf_triangulate <- function(curves_part = NULL,
                              tr.points = 10, length.p = 10,
                              plot.it = TRUE){

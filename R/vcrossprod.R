@@ -4,9 +4,8 @@
 #'
 #' @param u vector 1
 #' @param v vector 2
-#' @keywords
+#' @keywords vcrossprod
 #' @export
-#' @examples
 #################################
 # Cross-product for two vectors #
 #################################

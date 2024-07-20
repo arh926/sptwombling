@@ -1,6 +1,6 @@
 Package: sptwombling
 Type: Package
-Title: Bayesian Wombling for Spatiotemporal Processes
+Title: Bayesian Spatiotemporal Wombling
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Aritra",
@@ -14,9 +14,18 @@ Encoding: UTF-8
 Language: es
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Imports: stats, coda, MASS, Matrix, parallel, sp, MBA,
-        latex2exp, RColorBrewer, raster, graphics, grDevices
+RoxygenNote: 7.3.2
+Imports: 
+    coda,
+    cowplot,
+    ggplot2,
+    graphics,
+    latex2exp,
+    magic,
+    MBA,
+    metR,
+    parallel,
+    rgl
 NeedsCompilation: no
 Packaged: 2023-01-26 08:26:51 UTC; aritrah
 Author: Aritra Halder [aut, cre] (<https://orcid.org/0000-0002-5139-3620>)

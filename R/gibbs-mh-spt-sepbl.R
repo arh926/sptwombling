@@ -13,7 +13,6 @@
 #' @param y observed response (order \eqn{N} x  \eqn{1}), \eqn{N= N_s\times N_t}
 #' @param X a matrix of covariates (order \eqn{N} x  \eqn{p})
 #' @param z_init starting values of spatial effects (order \eqn{N} x  \eqn{1})
-#' @param D (use if replication at co-ordinate level) index for observations
 #' @param phis_init starting value for \eqn{\phi_s}
 #' @param phit_init starting value for \eqn{\phi_t}
 #' @param lower_phis lower bound for uniform prior on \eqn{\phi_s}
@@ -34,12 +33,13 @@
 #' @param stept_init tuning parameter for \eqn{\phi_t}
 #' @param niter number of MCMC iterations
 #' @param nburn number of burn-in samples
+#' @param digits number of significant digits
 #' @param report batch length
-#' @param cov.type covariance type (three available choices: Gaussian, Mat\'ern(\eqn{\nu=1/2}), Mat\'ern(\eqn{\nu=3/2}), Mat\'ern(\eqn{\nu=5/2})
-#' @keywords
+#' @param cov.type.s covariance type (three available choices: Exponential, Gaussian, Mat\'ern(\eqn{\nu=1/2}), Mat\'ern(\eqn{\nu=3/2}), Mat\'ern(\eqn{\nu=5/2})
+#' @param cov.type.t covariance type (three available choices: Exponential, Gaussian, Mat\'ern(\eqn{\nu=1/2}), Mat\'ern(\eqn{\nu=3/2}), Mat\'ern(\eqn{\nu=5/2}), Polynomial
+#' @keywords hlmBayes_spt
 #' @import stats coda
 #' @export
-#' @examples
 ##################################################################
 ### Hierarchical Bayesian spatial model: point referenced data ###
 ##################################################################

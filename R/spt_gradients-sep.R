@@ -1,21 +1,24 @@
-require(parallel)
-require(magic)
-require(latex2exp)
-
-source("~/Dropbox/Repos/sptwombling/R/spt-gradients-est-plot.R")
-fn.list = list.files("cov_fn/")
-sapply(fn.list, function(x){
-  source(paste("cov_fn/", x, sep = ""))
-  return(0)
-})
-
-spt_gradients <- function(model = NULL, # should be a list of MCMC results post burn-in
-                          grid.points = NULL,
-                          cov.type.s = c("matern1", "matern2", "gaussian"),
-                          nbatch = NULL,
-                          plots = TRUE,
-                          only.grad.no.curv = FALSE,
-                          true = NULL){ # supply as a list
+#' Posterior sampling of spatiotemporal differential processes
+#'
+#' Performs 1-for-1 sampling of spatiotemporal differential processes
+#'
+#' @param model a list containing posterior samples from a collapsed or Gibbs sampler that fits a spatiotemporal Bayesian hierarchical model
+#' @param grid.points can be an equi-spaced grid or in-fill or extrapolated points
+#' @param cov.type.s three choices of covariance: Gaussian, Mat\'ern(\eqn{\nu=3/2})), Mat\'ern(\eqn{\nu=5/2})
+#' @param nbatch batching for posterior samples. Defaults at 300.
+#' @param plots logical for plotting. Defaults to FALSE.
+#' @param only.grad.no.curv logical for only gradients and no curvature estimation
+#' @param true true values, if available. Should be supplied as a list.
+#' @keywords spt_gradients_sep
+#' @import parallel magic latex2exp coda
+#' @export
+spt_gradients_sep <- function(model = NULL, # should be a list of MCMC results post burn-in
+                              grid.points = NULL,
+                              cov.type.s = c("matern1", "matern2", "gaussian"),
+                              nbatch = NULL,
+                              plots = TRUE,
+                              only.grad.no.curv = FALSE,
+                              true = NULL){ # supply as a list
   if(is.null(grid)){
     grid.points = expand.grid(x = seq(0, 1, by = 0.1),
                               y = seq(0, 1, by = 0.1))
@@ -270,7 +273,7 @@ spt_gradients <- function(model = NULL, # should be a list of MCMC results post 
           R.Z.in <- corr.mat$R.inv
 
 
-          grad.est <- matrix(NA, nr = nrow(grid.points), nc = ngrad)
+          grad.est <- matrix(NA, nrow = nrow(grid.points), ncol = ngrad)
 
           A.t <- (phit[i.mcmc]^2 * delta.t0^2 + 1)
           for(i in 1:nrow(grid.points)){

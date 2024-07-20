@@ -4,10 +4,9 @@
 #'
 #' @param model a list containing posterior samples from a collapsed or Gibbs sampler that fits a spatiotemporal Bayesian hierarchical model
 #' @param wombling.df a data-frame consisting of points, areas, normals for a triangulated surface
-#' @import coda
-#' @keywords
+#' @keywords sptwombling
+#' @import coda parallel magic
 #' @export
-#' @examples
 sptwombling <- function(model = NULL,
                         wombling.df = NULL){
   grid.points = data.frame(wombling.df[, c(1:3)])

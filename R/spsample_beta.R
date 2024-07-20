@@ -4,6 +4,7 @@
 #' regression coefficients using a Gibbs sampling algorithm.
 #'
 #' @param y response
+#' @param X design matrix
 #' @param coords spatial co-ordinates
 #' @param t temporal coordinates
 #' @param phis posterior samples of the spatial range parameter
@@ -12,10 +13,9 @@
 #' @param tau2 posterior samples of the error variance (nugget)
 #' @param cov.type type of covariance kernel being used. Choices include Exponential, Mat\'ern(\eqn{\nu=3/2})), Mat\'ern(\eqn{\nu=5/2}), Gaussian
 #' @param silent logical argument for print-statements
-#' @keywords
+#' @keywords spsample_beta
 #' @import parallel
 #' @export
-#' @examples
 spsample <- function(y = NULL,
                      X = NULL,
                      coords = NULL,
