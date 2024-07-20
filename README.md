@@ -7,8 +7,8 @@ Reference to the paper titled, "Bayesian spatiotemporal Wombling". (arXiv link: 
 
 <table>
   <tr>
-    <td> <img width="500" height="280" src="https://github.com/user-attachments/assets/15eb2dac-21ea-462c-a900-9131ca906fff"/> </td>
-    <td> <img width="100" height="280" src="https://github.com/user-attachments/assets/2f1321de-0d28-44b6-9d7b-de352288e67e"/> </td>
+    <td> <img width="600" height="280" src="https://github.com/user-attachments/assets/15eb2dac-21ea-462c-a900-9131ca906fff"/> </td>
+    <td> <img width="300" height="280" src="https://github.com/user-attachments/assets/2f1321de-0d28-44b6-9d7b-de352288e67e"/> </td>
   </tr>
 </table>
 
