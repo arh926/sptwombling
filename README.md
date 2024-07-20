@@ -23,12 +23,12 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
 
 1. Load the data containing (a) space-time co-ordinates (b) response (c) covariates
 2. Fit a spatiotemporal Bayesian hierarchical model to the data
-3. Perform spatotemporal differential process analysis
+3. Perform spatiotemporal differential process analysis
 4. Locate or annotate planar curves of interest
 5. Perform surface wombling over triangulated surface
 
 ```
-if(!require(devtools)) install.packages("devtools")
+if("devtools" %in% rownames(installed.packages()) == FALSE) install.packages("devtools")
 devtools::install_github('arh926/sptwombling')
 require(sptwombling)
 ```
@@ -37,7 +37,7 @@ require(sptwombling)
 
 | Name   | Email       |              |
 |:------ |:----------- | :----------- |
-| Aritra Halder (maintainer)| aritra.halder@drexel.edu   | Assistant Professor, Dept. of Biostatistics, Drexel University| 
-| Didong Li | didongli@unc.edu   | Assistant Professor, Dept. of Biostatistics, University of North Carolina|
+| Aritra Halder (maintainer)| aritra.halder@drexel.edu   | Asst. Professor, Dept. of Biostatistics, Drexel University| 
+| Didong Li | didongli@unc.edu   | Asst. Professor, Dept. of Biostatistics, University of North Carolina|
 | Sudipto Banerjee | sudipto@ucla.edu   | Professor, Dept. of Biostatistics,  UCLA |
 <!--- --->
