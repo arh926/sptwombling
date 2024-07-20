@@ -7,6 +7,13 @@ Reference to the paper titled, "Bayesian spatiotemporal Wombling". (arXiv link: 
 
 <table>
   <tr>
+    <td> <img width="300" height="280" src="https://github.com/user-attachments/files/16319172/div-theorem.pdf"/> </td>
+    <td> <img width="300" height="280" src="https://github.com/user-attachments/files/16319171/st-curves-new.pdf"/> </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
     <td> <img width="300" height="280" src="https://github.com/user-attachments/assets/9a99542c-e6ec-413e-9324-d40fade26355"/> </td>
     <td> <img width="300" height="280" src="https://github.com/user-attachments/assets/e06d2221-d72d-4d23-887f-faa6cfafb713"/> </td>
     <td> <img width="300" height="280" src="https://github.com/user-attachments/assets/57403b92-aac2-4935-9dd2-f66a56fda072"/> </td>
