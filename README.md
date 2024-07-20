@@ -28,7 +28,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
 5. Perform surface wombling over triangulated surface
 
 ```
-if(!require(devtools)) install.packages("devtools")
+if("devtools" %in% rownames(installed.packages()) == FALSE) install.packages("devtools")
 devtools::install_github('arh926/sptwombling')
 require(sptwombling)
 ```
