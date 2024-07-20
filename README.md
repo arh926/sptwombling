@@ -4,7 +4,6 @@
 
 Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: here).
 
-
 <table>
   <tr>
     <td> <img width="600" height="280" src="https://github.com/user-attachments/assets/15eb2dac-21ea-462c-a900-9131ca906fff"/> </td>
@@ -20,12 +19,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
   </tr>
 </table>
 
-
-Illustration
-
-Code for performing Bayesian spatiotemporal wombling
-
-## Contents
+## Steps to follow for analysis
 
 1. Load the data containing (a) space-time co-ordinates (b) response (c) covariates
 2. Fit a spatiotemporal Bayesian hierarchical model to the data
@@ -33,9 +27,6 @@ Code for performing Bayesian spatiotemporal wombling
 4. Locate or annotate planar curves of interest
 5. Perform surface wombling over triangulated surface
 
-Demonstration with synthetic data.
-
-### Load the data and separate (a) co-ordinates (b) response (c) covariates
 ```
 if(!require(devtools)) install.packages("devtools")
 devtools::install_github('arh926/sptwombling')
