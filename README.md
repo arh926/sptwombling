@@ -37,7 +37,7 @@ require(sptwombling)
 
 | Name   | Email       |              |
 |:------ |:----------- | :----------- |
-| Aritra Halder (maintainer)| aritra.halder@drexel.edu   | Assistant Professor, Dept. of Biostatistics, Drexel University| 
-| Didong Li | didongli@unc.edu   | Assistant Professor, Dept. of Biostatistics, University of North Carolina|
+| Aritra Halder (maintainer)| aritra.halder@drexel.edu   | Asst. Professor, Dept. of Biostatistics, Drexel University| 
+| Didong Li | didongli@unc.edu   | Asst. Professor, Dept. of Biostatistics, University of North Carolina|
 | Sudipto Banerjee | sudipto@ucla.edu   | Professor, Dept. of Biostatistics,  UCLA |
 <!--- --->
