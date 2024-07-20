@@ -5,17 +5,13 @@
 Reference to the paper titled, "Bayesian spatiotemporal Wombling". (arXiv link: here).
 
 
-<div class="image123">
-  <div class="imgContainer">
-    <img width="300" height="250" src="https://github.com/user-attachments/assets/9a99542c-e6ec-413e-9324-d40fade26355"/>
-  </div>
-  <div class="imgContainer">
-    <img width="300" height="250" src="https://github.com/user-attachments/assets/e06d2221-d72d-4d23-887f-faa6cfafb713"/>
-  </div>
-  <div class="imgContainer">
-      <img width="300" height="250" src="https://github.com/user-attachments/assets/57403b92-aac2-4935-9dd2-f66a56fda072"/>
-  </div>
-</div>
+<table>
+  <tr>
+    <td> <img width="300" height="300" src="https://github.com/user-attachments/assets/9a99542c-e6ec-413e-9324-d40fade26355"/> </td>
+    <td> <img width="300" height="300" src="https://github.com/user-attachments/assets/e06d2221-d72d-4d23-887f-faa6cfafb713"/> </td>
+    <td> <img width="300" height="300" src="https://github.com/user-attachments/assets/57403b92-aac2-4935-9dd2-f66a56fda072"/> </td>
+  </tr>
+</table>
 
 
 Illustration
