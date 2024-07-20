@@ -56,15 +56,15 @@ spt_gradients_est_plot <- function(coords = NULL,
     colnames(gg.grid) = c("s.x", "s.y")
     df.p = cbind(gg.grid, z = as.vector(t(surf$z)))
 
-    plots.time[[1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+    plots.time[[1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
       theme_cowplot(12) +
-      geom_raster(aes(fill =  z)) +
+      geom_raster(aes_string(fill =  "z")) +
       labs(x = "", y = "y", fill = "") +
       scale_fill_distiller(palette = "PiYG",
                            label = function(x) sprintf("%.2f", x)) +
-      geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+      geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
       geom_point(data = data.frame(coords),
-                 aes(x = x, y = y),
+                 aes_string(x = "x", y = "y"),
                  fill = col.y,
                  size = point.size, stroke = 0.5, pch = pch.y) +
       theme(axis.title.x = element_blank(),
@@ -90,14 +90,14 @@ spt_gradients_est_plot <- function(coords = NULL,
 
       if(i.g <= 2){
         # Spatial Gradients
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "", y = "", fill = "") +
           scale_fill_distiller(palette = "Spectral", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -114,14 +114,14 @@ spt_gradients_est_plot <- function(coords = NULL,
       }
       if(i.g == 3){
         # Temporal Gradients of process
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "y", fill = "") +
           scale_fill_distiller(palette = "RdYlBu", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -138,14 +138,14 @@ spt_gradients_est_plot <- function(coords = NULL,
       }
       if(i.g > 3){
         # Temporal Gradients of spatial gradients
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "", fill = "") +
           scale_fill_distiller(palette = "PRGn", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -171,14 +171,14 @@ spt_gradients_est_plot <- function(coords = NULL,
 
       if(i.g <= 5){
         # Spatial Gradients & Curvature
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "y", fill = "") +
           scale_fill_distiller(palette = "Spectral", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -197,14 +197,14 @@ spt_gradients_est_plot <- function(coords = NULL,
       }
       if(i.g == 6){
         # Temporal Gradients of process
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "y", fill = "") +
           scale_fill_distiller(palette = "RdYlBu", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -221,14 +221,14 @@ spt_gradients_est_plot <- function(coords = NULL,
       }
       if(i.g > 6 & i.g <= 11){
         # Temporal Gradients of spatial gradients & curvature
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "y", fill = "") +
           scale_fill_distiller(palette = "PRGn", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -245,14 +245,14 @@ spt_gradients_est_plot <- function(coords = NULL,
       }
       if(i.g == 12){
         # Temporal Curvature of process
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "y", fill = "") +
           scale_fill_distiller(palette = "RdYlBu", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),
@@ -269,14 +269,14 @@ spt_gradients_est_plot <- function(coords = NULL,
       }
       if(i.g > 12){
         # Temporal Curvature of spatial gradients & curvature
-        plots.time[[i.g + 1]] = ggplot(df.p, aes(x = s.y, y = s.x)) +
+        plots.time[[i.g + 1]] = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
           theme_cowplot(12) +
-          geom_raster(aes(fill =  z)) +
+          geom_raster(aes_string(fill =  "z")) +
           labs(x = "x", y = "y", fill = "") +
           scale_fill_distiller(palette = "BrBG", label = function(x) sprintf("%.2f", x)) +
-          geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+          geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
           geom_point(data = data.frame(grid.points),
-                     aes(x = x, y = y),
+                     aes_string(x = "x", y = "y"),
                      fill = col.grad[,i.g],
                      size = point.size, stroke = 0.5, pch = pch.mat[,i.g]) +
           theme(axis.title.x = element_blank(),

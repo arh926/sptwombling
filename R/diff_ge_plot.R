@@ -1,13 +1,15 @@
 #' Plots estimated differential geometric quantities
 #'
-#' Uses ggplot2 to generate estimated plots for spatotemporal divergence and Laplacian
+#' Uses ggplot2 to generate estimated plots for spatiotemporal divergence and Laplacian
 #' @param coords coordinates of grid points
+#' @param grid.points grid over which the differential geometric quantity will be estimated
 #' @param diff.qty differential geometric quantity
 #' @param col.vec color vector for significance
 #' @import MBA ggplot2 cowplot metR
 #' @keywords plot_diff.geo
 #' @export
 plot_diff.geo <- function(coords = NULL,
+                          grid.points = NULL,
                           diff.qty = NULL,
                           col.vec = NULL){
   key.height = 0.6
@@ -22,15 +24,15 @@ plot_diff.geo <- function(coords = NULL,
   df.p = cbind(gg.grid, z = as.vector(t(surf$z)))
 
   if(is.null(col.vec)){
-    plot.f = ggplot(df.p, aes(x = s.y, y = s.x)) +
+    plot.f = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
       theme_cowplot(12) +
-      geom_raster(aes(fill =  z)) +
+      geom_raster(aes_string(fill =  "z")) +
       labs(x = "", y = "y", fill = "") +
       scale_fill_distiller(palette = "PuOr",
                            label = function(x) sprintf("%.2f", x)) +
-      geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+      geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
       geom_point(data = data.frame(coords),
-                 aes(x = x, y = y),
+                 aes_string(x = "x", y = "y"),
                  size = 1.5) +
       theme(axis.title.x = element_blank(),
             axis.text.x = element_blank(),
@@ -44,15 +46,15 @@ plot_diff.geo <- function(coords = NULL,
             legend.text = element_text(size = text.size),
             plot.margin = unit(c(0.15, 0.15, 0.15, 0.15), "cm"))
   }else{
-    plot.f = ggplot(df.p, aes(x = s.y, y = s.x)) +
+    plot.f = ggplot(df.p, aes_string(x = "s.y", y = "s.x")) +
       theme_cowplot(12) +
-      geom_raster(aes(fill =  z)) +
+      geom_raster(aes_string(fill =  "z")) +
       labs(x = "", y = "y", fill = "") +
       scale_fill_distiller(palette = "PuOr",
                            label = function(x) sprintf("%.2f", x)) +
-      geom_contour2(aes(z = z, label = after_stat(level)), size = 0.1, label_size = contour.text.size) +
+      geom_contour2(aes_string(z = "z", label = "after_stat(level)"), size = 0.1, label_size = contour.text.size) +
       geom_point(data = data.frame(grid.points),
-                 aes(x = x, y = y),
+                 aes_string(x = "x", y = "y"),
                  fill = col.vec,
                  size = 1.5, stroke = 0.5, pch = 21) +
       theme(axis.title.x = element_blank(),

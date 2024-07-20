@@ -89,11 +89,11 @@ spt_gradients_sep <- function(model = NULL, # should be a list of MCMC results p
             ###########################
             # gradients and curvature #
             ###########################
-            # \nabla_s
+            # \partial_s
             nabKs <- as.vector(unlist(sapply(dist.s0[,i], function(x) -3 * phis[i.mcmc]^2 * exp(-sqrt(3) * phis[i.mcmc] * x)/A.t, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKs) <- NULL
-            # \nabla_t
+            # \partial_t
             nabKt <- as.vector(unlist(sapply(dist.s0[,i], function(x) -2 * phit[i.mcmc]^2 * delta.t0 * exp(-sqrt(3) * phis[i.mcmc] * x)/A.t^2, simplify = FALSE)))
-            # \nabla_t\nabla_s
+            # \partial_t\partial_s
             nabKst <- as.vector(unlist(sapply(dist.s0[,i], function(x) 6 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(3) * phis[i.mcmc] * x) * delta.t0/A.t^2, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKst) <- NULL
 
             nabK0 <- as.matrix(cbind(nabKs, nabKt, nabKst))
@@ -160,27 +160,27 @@ spt_gradients_sep <- function(model = NULL, # should be a list of MCMC results p
             ###########################
             # gradients and curvature #
             ###########################
-            # \nabla_s
+            # \partial_s
             nabKs <- as.vector(unlist(sapply(dist.s0[,i], function(x) -5/3 * phis[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x) * (1 + sqrt(5) * phis[i.mcmc] * x)/A.t, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKs) <- NULL
-            # \nabla_s^2
+            # \partial_s^2
             nabK2s.11 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -5/3 * phis[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 + sqrt(5) * phis[i.mcmc] * x[1] - 5 * phis[i.mcmc]^2 * x[2])/A.t, simplify = FALSE)))
             nabK2s.12 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 25/3 * phis[i.mcmc]^4 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * x[3]/A.t, simplify = FALSE)))
             nabK2s.22 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -5/3 * phis[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 + sqrt(5) * phis[i.mcmc] * x[1] - 5 * phis[i.mcmc]^2 * x[4])/A.t, simplify = FALSE)))
 
-            # \nabla_t
+            # \partial_t
             nabKt <- as.vector(unlist(sapply(dist.s0[,i], function(x) -2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x) * (1 + sqrt(5) * phis[i.mcmc] * x + 5/3 * phis[i.mcmc]^2 * x^2) * delta.t0/A.t^2, simplify = FALSE)))
-            # \nabla_t\nabla_s
+            # \partial_t\partial_s
             nabKst <- as.vector(unlist(sapply(dist.s0[,i], function(x) 10/3 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x) * (1 + sqrt(5) * phis[i.mcmc] * x)/A.t^2 * delta.t0, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKst) <- NULL
-            # \nabla_t\nabla_s^2
+            # \partial_t\partial_s^2
             nabK2st.11 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 10/3 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 + sqrt(5) * phis[i.mcmc] * x[1] - 5 * phis[i.mcmc]^2 * x[2]^2) * delta.t0/A.t^2, simplify = FALSE)))
             nabK2st.12 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -50/3 * phis[i.mcmc]^4 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * x[3] * delta.t0/A.t^2, simplify = FALSE)))
             nabK2st.22 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 10/3 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 + sqrt(5) * phis[i.mcmc] * x[1] - 5 * phis[i.mcmc]^2 * x[4]^2) * delta.t0/A.t^2, simplify = FALSE)))
 
-            # \nabla_t^2
+            # \partial_t^2
             nabK2t <- as.vector(unlist(sapply(dist.s0[,i], function(x) -2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x) * (1 + sqrt(5) * phis[i.mcmc] * x + 5/3 * phis[i.mcmc]^2 * x^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
-            # \nabla_t^2\nabla_s
+            # \partial_t^2\partial_s
             nabKs2t <- as.vector(unlist(sapply(dist.s0[,i], function(x) 10/3 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x) * (1 + sqrt(5) * phis[i.mcmc] * x) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKs2t) <- NULL
-            # \nabla_t^2\nabla_s^2
+            # \partial_t^2\partial_s^2
             nabK2s2t.11 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 10/3 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 + sqrt(5) * phis[i.mcmc] * x[1] - 5 * phis[i.mcmc]^2 * x[2]^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
             nabK2s2t.12 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -50/3 * phis[i.mcmc]^4 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2) * x[3]/A.t^3, simplify = FALSE)))
             nabK2s2t.22 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 10/3 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-sqrt(5) * phis[i.mcmc] * x[1]) * (1 + sqrt(5) * phis[i.mcmc] * x[1] - 5 * phis[i.mcmc]^2 * x[4]^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
@@ -282,25 +282,25 @@ spt_gradients_sep <- function(model = NULL, # should be a list of MCMC results p
             ###########################
             # gradients and curvature #
             ###########################
-            # \nabla_s
+            # \partial_s
             nabKs <- as.vector(unlist(sapply(dist.s0[,i], function(x) -2 * phis[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x^2)/A.t, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKs) <- NULL
-            # \nabla_s^2
+            # \partial_s^2
             nabK2s.11 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -2 * phis[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * (1 - 2 * phis[i.mcmc]^2 * x[2])/A.t, simplify = FALSE)))
             nabK2s.12 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 4 * phis[i.mcmc]^4 * exp(-phis[i.mcmc]^2 * x[1]^2) * x[3]/A.t, simplify = FALSE)))
             nabK2s.22 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -2 * phis[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * (1 - 2 * phis[i.mcmc]^2 * x[4])/A.t, simplify = FALSE)))
-            # \nabla_t
+            # \partial_t
             nabKt <- as.vector(unlist(sapply(dist.s0[,i], function(x) -2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x^2) * delta.t0/A.t^2, simplify = FALSE)))
-            # \nabla_t\nabla_s
+            # \partial_t\partial_s
             nabKst <- as.vector(unlist(sapply(dist.s0[,i], function(x) 4 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x^2) * delta.t0/A.t^2, simplify = F))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKst) <- NULL
-            # \nabla_t\nabla_s^2
+            # \partial_t\partial_s^2
             nabK2st.11 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 4 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * (1 - 2 * phis[i.mcmc]^2 * x[2]^2) * delta.t0/A.t^2, simplify = FALSE)))
             nabK2st.12 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -8 * phis[i.mcmc]^4 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * x[3] * delta.t0/A.t^2, simplify = FALSE)))
             nabK2st.22 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 4 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * (1 - 2 * phis[i.mcmc]^2 * x[4]^2) * delta.t0/A.t^2, simplify = FALSE)))
-            # \nabla_t^2
+            # \partial_t^2
             nabK2t <- as.vector(unlist(sapply(dist.s0[,i], function(x) -2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
-            # \nabla_t^2\nabla_s
+            # \partial_t^2\partial_s
             nabKs2t <- as.vector(unlist(sapply(dist.s0[,i], function(x) 4 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE))) * delta.s0[[i]][rep(seq_len(Ns), each = Nt),]; rownames(nabKs2t) <- NULL
-            # \nabla_t^2\nabla_s^2
+            # \partial_t^2\partial_s^2
             nabK2s2t.11 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 4 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * (1 - 2 * phis[i.mcmc]^2 * x[2]^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
             nabK2s2t.12 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) -8 * phis[i.mcmc]^4 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * x[3] * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
             nabK2s2t.22 <- as.vector(unlist(apply(dist.delta.mat, 1, function(x) 4 * phis[i.mcmc]^2 * phit[i.mcmc]^2 * exp(-phis[i.mcmc]^2 * x[1]^2) * (1 - 2 * phis[i.mcmc]^2 * x[4]^2) * (1 - 3 * phit[i.mcmc]^2 * delta.t0^2)/A.t^3, simplify = FALSE)))
@@ -1347,15 +1347,15 @@ spt_gradients_sep <- function(model = NULL, # should be a list of MCMC results p
                                      cbind(spt.grad.obj$sxytt, type = 16),
                                      cbind(spt.grad.obj$syytt, type = 17)))
         obvf_grad$type = as.factor(obvf_grad$type)
-        levels(obvf_grad$type) = c(TeX("$y$"), TeX("$\\nabla_{s_x}$"), TeX("$\\nabla_{s_y}$"), TeX("$\\nabla^2_{s_x}$"), TeX("$\\nabla^2_{s_xs_y}$"), TeX("$\\nabla^2_{s_y}$"),
-                                   TeX("$\\nabla_t$"), TeX("$\\nabla_t\\nabla_{s_x}$"), TeX("$\\nabla_t\\nabla_{s_y}$"), TeX("$\\nabla_t\\nabla^2_{s_x}$"), TeX("$\\nabla_t\\nabla^2_{s_xs_y}$"), TeX("$\\nabla_t\\nabla^2_{s_y}$"),
-                                   TeX("$\\nabla^2_t$"), TeX("$\\nabla^2_t\\nabla_{s_x}$"), TeX("$\\nabla^2_t\\nabla_{s_y}$"), TeX("$\\nabla^2_t\\nabla^2_{s_x}$"), TeX("$\\nabla^2_t\\nabla^2_{s_xs_y}$"), TeX("$\\nabla^2_t\\nabla^2_{s_y}$"))
-        d.ggplot[[i]] <- ggplot(obvf_grad, aes(x = est, y = true)) +
+        levels(obvf_grad$type) = c(TeX("$y$"), TeX("$\\nabla_{s_x}$"), TeX("$\\partial_{s_y}$"), TeX("$\\partial^2_{s_x}$"), TeX("$\\partial^2_{s_xs_y}$"), TeX("$\\partial^2_{s_y}$"),
+                                   TeX("$\\partial_t$"), TeX("$\\partial_t\\partial_{s_x}$"), TeX("$\\partial_t\\partial_{s_y}$"), TeX("$\\partial_t\\partial^2_{s_x}$"), TeX("$\\partial_t\\partial^2_{s_xs_y}$"), TeX("$\\partial_t\\partial^2_{s_y}$"),
+                                   TeX("$\\partial^2_t$"), TeX("$\\partial^2_t\\partial_{s_x}$"), TeX("$\\partial^2_t\\partial_{s_y}$"), TeX("$\\partial^2_t\\partial^2_{s_x}$"), TeX("$\\partial^2_t\\partial^2_{s_xs_y}$"), TeX("$\\partial^2_t\\partial^2_{s_y}$"))
+        d.ggplot[[i]] <- ggplot(obvf_grad, aes_string(x = "est", y = "true")) +
           geom_point(size = 0.8) +
           labs(x = "estimated", y = "true") +
           theme_bw() +
-          geom_ribbon(aes(ymin = lower.ci.95, ymax = upper.ci.95), fill = "blue", alpha = 0.3) +
-          geom_line(aes(y = est), col = "red") +
+          geom_ribbon(aes_string(ymin = "lower.ci.95", ymax = "upper.ci.95"), fill = "blue", alpha = 0.3) +
+          geom_line(aes_string(y = "est"), col = "red") +
           facet_wrap(~type, ncol =  3, nrow = 6, scales = "free", labeller = label_parsed)
       }
 

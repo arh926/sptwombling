@@ -33,7 +33,7 @@ hlmBayes_spt(
   verbose = FALSE,
   digits = NULL,
   cov.type.s = c("exponential", "gaussian", "matern1", "matern2"),
-  cov.type.t = c("exponential", "gaussian", "matern1", "matern2")
+  cov.type.t = c("exponential", "gaussian", "matern1", "matern2", "poly")
 )
 }
 \arguments{

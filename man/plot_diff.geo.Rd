@@ -4,16 +4,23 @@
 \alias{plot_diff.geo}
 \title{Plots estimated differential geometric quantities}
 \usage{
-plot_diff.geo(coords = NULL, diff.qty = NULL, col.vec = NULL)
+plot_diff.geo(
+  coords = NULL,
+  grid.points = NULL,
+  diff.qty = NULL,
+  col.vec = NULL
+)
 }
 \arguments{
 \item{coords}{coordinates of grid points}
+
+\item{grid.points}{grid over which the differential geometric quantity will be estimated}
 
 \item{diff.qty}{differential geometric quantity}
 
 \item{col.vec}{color vector for significance}
 }
 \description{
-Uses ggplot2 to generate estimated plots for spatotemporal divergence and Laplacian
+Uses ggplot2 to generate estimated plots for spatiotemporal divergence and Laplacian
 }
 \keyword{plot_diff.geo}

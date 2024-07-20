@@ -1384,12 +1384,12 @@ spt_gradients <- function(model = NULL, # should be a list of MCMC results post 
         levels(obvf_grad$type) = c(TeX("$y$"), TeX("$\\partial_{s_x}$"), TeX("$\\partial_{s_y}$"), TeX("$\\partial^2_{s_x}$"), TeX("$\\partial^2_{s_xs_y}$"), TeX("$\\partial^2_{s_y}$"),
                                    TeX("$\\partial_t$"), TeX("$\\partial_t\\partial_{s_x}$"), TeX("$\\partial_t\\nabla_{s_y}$"), TeX("$\\partial_t\\partial^2_{s_x}$"), TeX("$\\partial_t\\partial^2_{s_xs_y}$"), TeX("$\\partial_t\\partial^2_{s_y}$"),
                                    TeX("$\\partial^2_t$"), TeX("$\\partial^2_t\\partial_{s_x}$"), TeX("$\\partial^2_t\\partial_{s_y}$"), TeX("$\\partial^2_t\\partial^2_{s_x}$"), TeX("$\\partial^2_t\\partial^2_{s_xs_y}$"), TeX("$\\partial^2_t\\partial^2_{s_y}$"))
-        d.ggplot[[i]] <- ggplot(obvf_grad, aes(x = est, y = true)) +
+        d.ggplot[[i]] <- ggplot(obvf_grad, aes_string(x = "est", y = "true")) +
           geom_point(size = 0.8) +
           labs(x = "estimated", y = "true") +
           theme_bw() +
-          geom_ribbon(aes(ymin = lower.ci.95, ymax = upper.ci.95), fill = "blue", alpha = 0.3) +
-          geom_line(aes(y = est), col = "red") +
+          geom_ribbon(aes_string(ymin = "lower.ci.95", ymax = "upper.ci.95"), fill = "blue", alpha = 0.3) +
+          geom_line(aes_string(y = "est"), col = "red") +
           facet_wrap(~type, ncol =  3, nrow = 6, scales = "free", labeller = label_parsed)
       }
 

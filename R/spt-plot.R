@@ -27,20 +27,20 @@ spt_plot <- function(coords = NULL,
     df.gg.full$t = as.factor(df.gg.full$t)
     levels(df.gg.full$t) = paste("t = ", 1:Nt, sep = "")
 
-    plot.gg = ggplot(df.gg.full, aes(x = s.y, y = s.x)) +
+    plot.gg = ggplot(df.gg.full, aes_string(x = "s.y", y = "s.x")) +
       theme_cowplot(12) +
-      geom_raster(aes(fill =  z)) +
+      geom_raster(aes_string(fill =  "z")) +
       labs(x = "x", y = "y", fill = "") +
       # other color scales
       # scico::scale_fill_scico(palette = "vik", label = function(x) sprintf("%.2f", x)) +
       # scale_fill_viridis_c(option = "magma", label = function(x) sprintf("%.2f", x)) +
       scale_fill_distiller(palette = "PiYG", label = function(x) sprintf("%.2f", x)) +
-      geom_contour2(aes(z = z, label = after_stat(level))) +
+      geom_contour2(aes_string(z = "z", label = "after_stat(level)")) +
       geom_point(data = data.frame(coords),
-                 aes(x = x, y = y),
+                 aes_string(x = "x", y = "y"),
                  size = 0.8) +
       facet_wrap(~t, ncol = 3) +
-      theme(legend.key.height = unit((Nt/3) * 1.3, 'cm'),
+      theme(legend.key.height = unit((Nt/3) * 1.2, 'cm'),
             legend.key.width = unit(0.6, 'cm'),
             legend.text = element_text(size = 20),
             strip.text.x = element_text(size = 20))

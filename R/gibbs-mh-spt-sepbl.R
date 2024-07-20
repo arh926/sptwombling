@@ -55,7 +55,7 @@ hlmBayes_spt <- function(coords = NULL, t = NULL,
                          niter = NULL, nburn = NULL, report = NULL,
                          verbose = FALSE, digits = NULL,
                          cov.type.s = c("exponential", "gaussian", "matern1", "matern2"),
-                         cov.type.t = c("exponential", "gaussian", "matern1", "matern2")){
+                         cov.type.t = c("exponential", "gaussian", "matern1", "matern2", "poly")){
   ##################
   # Chain Defaults #
   ##################
