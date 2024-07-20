@@ -23,7 +23,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
 
 1. Load the data containing (a) space-time co-ordinates (b) response (c) covariates
 2. Fit a spatiotemporal Bayesian hierarchical model to the data
-3. Perform spatotemporal differential process analysis
+3. Perform spatiotemporal differential process analysis
 4. Locate or annotate planar curves of interest
 5. Perform surface wombling over triangulated surface
 
