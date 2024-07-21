@@ -27,7 +27,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
 4. Locate or annotate planar curves of interest
 5. Perform surface wombling over triangulated surface
 
-Refer to the vignettes folder for further details and steos to reproduce the analysis. All spatiotemporal plotting relies on `ggplot2` and `rgl`.
+Refer to the vignettes folder for further details on the above steps to reproduce the analysis. All spatiotemporal plotting relies on `ggplot2` and `rgl`.
 ```
 if("devtools" %in% rownames(installed.packages()) == FALSE) install.packages("devtools")
 devtools::install_github('arh926/sptwombling')
