@@ -3,7 +3,7 @@
 #' @param curves_part partitioned curves
 #' @param tr.points number of points in triangle (should be fixed at 10 for now)
 #' @param length.p length of partition (should be fixed at 10 for now)
-#' @param wm.signif wombling measure estimated at the traingular level (should be a data.frame)
+#' @param wm.signif wombling measure estimated at the triangular level (should be a data.frame)
 #' @keywords plot.surf.wm.sig
 #' @import coda
 #' @export

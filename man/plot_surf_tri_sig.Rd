@@ -18,7 +18,7 @@ plot_surf_tri_sig(
 
 \item{length.p}{length of partition (should be fixed at 10 for now)}
 
-\item{wm.signif}{wombling measure estimated at the traingular level (should be a data.frame)}
+\item{wm.signif}{wombling measure estimated at the triangular level (should be a data.frame)}
 }
 \description{
 Plots significance at the triangular region level
