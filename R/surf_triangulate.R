@@ -33,20 +33,20 @@ surf_triangulate <- function(curves_part = NULL,
                          points[(length.p + j):(length.p + j + 1),])
 
       # s_0
-      a.1 = points.sub[1,]
+      a.1 = as.numeric(points.sub[1,])
       # (u, 0)
-      u.1 = points.sub[2,] - a.1
+      u.1 = as.numeric(points.sub[2,] - a.1)
       # (v, 1)
-      v.1 = points.sub[3,] - a.1
+      v.1 = as.numeric(points.sub[3,] - a.1)
 
       # normal to plane 1
       n.1 = vcrossprod(u = v.1, v = u.1)
 
-      a.2 = points.sub[4,]
+      a.2 = as.numeric(points.sub[4,])
       # (u - w, -1)
-      u.2 = points.sub[2,] - a.2
+      u.2 = as.numeric(points.sub[2,] - a.2)
       # (v - w, 0)
-      v.2 = points.sub[3,] - a.2
+      v.2 = as.numeric(points.sub[3,] - a.2)
 
       # normal to plane 2
       n.2 = vcrossprod(u = v.2, v = -u.2)
