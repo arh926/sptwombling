@@ -10,7 +10,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
     <td> <img width="300" height="260" src="https://github.com/user-attachments/assets/2f1321de-0d28-44b6-9d7b-de352288e67e"/> </td>
   </tr>
 </table>
-
+<iframe src="https://giphy.com/embed/GJUuNwQRWiJkMrKjEl" width="480" height="465" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/GJUuNwQRWiJkMrKjEl">via GIPHY</a></p>
 <table>
   <tr>
     <td> <img width="300" height="260" src="https://github.com/user-attachments/assets/9a99542c-e6ec-413e-9324-d40fade26355"/> </td>
