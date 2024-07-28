@@ -1,4 +1,5 @@
-# sptwombling: An R-package for Bayesian spatiotemporal Wombling
+# sptwombling
+## An R-package for Bayesian spatiotemporal Wombling
 
 ![Maintainer](https://img.shields.io/badge/maintainer-arh926-blue)
 
