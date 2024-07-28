@@ -14,7 +14,7 @@ Reference to the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: 
 <table>
   <tr>
     <td> <img width="300" height="260" src="https://github.com/user-attachments/assets/9a99542c-e6ec-413e-9324-d40fade26355"/> </td>
-    <td> <img width="300" height="260" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2ltMDVvcGkzb3lvY2FsMmN6dnpwMmhtNXRmenFmajE2ZGx3YWlmNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WUhewkgbu4SyAVRolR/giphy.gif"/> </td>
+    <td> <img width="300" height="260" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTllc3N4YmlkYzUzZzVhZm85OGpta2ZhbnRoYzF5ZmoyM3FxZjgwdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WUhewkgbu4SyAVRolR/giphy-downsized.gif"/> </td>
     <td> <img width="300" height="260" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXd2emNnbTJrdDl5NDhpOHdycDJzNDFraXVzMnc4ZHI4OXdxOXB2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GJUuNwQRWiJkMrKjEl/giphy-downsized.gif"/> </td>
   </tr>
 </table>
