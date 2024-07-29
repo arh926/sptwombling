@@ -7,7 +7,7 @@ An `R`-package for performing Bayesian spatiotemporal wombling. Further details 
 
 <table>
   <tr>
-    <td> <img width="600" height="260" src="https://github.com/user-attachments/assets/15eb2dac-21ea-462c-a900-9131ca906fff"/> </td>
+    <td> <img width="600" height="260" src="https://github.com/user-attachments/files/16409296/st-curves-new-1.pdf"/> </td>
     <td> <img width="300" height="260" src="https://github.com/user-attachments/assets/2f1321de-0d28-44b6-9d7b-de352288e67e"/> </td>
   </tr>
 </table>
