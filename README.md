@@ -3,7 +3,7 @@
 
 ![Maintainer](https://img.shields.io/badge/maintainer-arh926-blue)
 
-An `R`-package for performing Bayesian spatiotemporal wombling. Further details can be found in the paper titled, "Bayesian Spatiotemporal Wombling". (arXiv link: https://arxiv.org/abs/2407.17804).
+An `R`-package for performing Bayesian spatiotemporal wombling. Further details can be found in the paper titled, "Bayesian Spatiotemporal Wombling".
 
 <table>
   <tr>
@@ -34,12 +34,3 @@ if("devtools" %in% rownames(installed.packages()) == FALSE) install.packages("de
 devtools::install_github('arh926/sptwombling')
 require(sptwombling)
 ```
-
-## Authors
-
-| Name   | Email       |              |
-|:------ |:----------- | :----------- |
-| Aritra Halder (maintainer)| aritra.halder@drexel.edu   | Asst. Professor, Dept. of Biostatistics, Drexel University| 
-| Didong Li | didongli@unc.edu   | Asst. Professor, Dept. of Biostatistics, University of North Carolina|
-| Sudipto Banerjee | sudipto@ucla.edu   | Professor & Past Chair, Dept. of Biostatistics,  UCLA |
-<!--- --->
