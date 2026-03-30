@@ -34,3 +34,5 @@ if("devtools" %in% rownames(installed.packages()) == FALSE) install.packages("de
 devtools::install_github('arh926/sptwombling')
 require(sptwombling)
 ```
+## Detailed Instruction for reproducing simulations
+[View the PDF Documentation](./vignettes/vignette-model-fit+gradients.pdf)
