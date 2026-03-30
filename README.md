@@ -35,4 +35,5 @@ devtools::install_github('arh926/sptwombling')
 require(sptwombling)
 ```
 ## Detailed Instruction for reproducing simulations
-[View the PDF Documentation](./vignettes/vignette-model-fit+gradients.pdf)
+Gradients: [View the PDF Documentation](./vignettes/vignette-model-fit+gradients.pdf)
+Spatiotemporal Wombling: [View the PDF Documentation](./vignettes/vignette-wombling.pdf)
