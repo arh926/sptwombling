@@ -3,7 +3,7 @@
 
 ![Maintainer](https://img.shields.io/badge/maintainer-arh926-blue)
 
-An `R`-package for performing Bayesian spatiotemporal wombling. Further details can be found in the paper titled, "Bayesian Spatiotemporal Wombling".
+An `R`-package for performing Bayesian spatiotemporal boundary analysis. Further details can be found in the paper titled, Halder, Li and Banerjee (2026) "Bayesian Spatiotemporal Wombling", Journal of the American Statistical Association, https://doi.org/10.1080/01621459.2026.2700798.
 
 <table>
   <tr>
